@@ -9,7 +9,7 @@ public partial class Control : Godot.Control
     [Signal]
     public delegate void CurrentObjectChangedEventHandler();
 
-    public List<AnObject> ListOfObjects { get; set; }
+    public List<AnObject> ListOfObjects { get; set; } = new();
 
     private AnObject _currentObject;
     public AnObject CurrentObject
@@ -39,12 +39,10 @@ public partial class Control : Godot.Control
 
     public override void _Ready()
     {
-        ListOfObjects = new() {
-			new AnObject { Name = "Name 1" },
-			new AnObject { Name = "Name 2" },
-			new AnObject { Name = "Name 3" },
-			new AnObject { Name = "Name 4" },
-		};
+        for (int i = 0; i < 20; i++)
+		{
+			ListOfObjects.Add(new AnObject { Name = $"Name {i}"});
+		}
 
         var list = GetItemList();
         foreach (var anObject in ListOfObjects)

@@ -2,7 +2,7 @@ using Godot;
 
 namespace SignalLeak;
 
-public partial class AnObject : GodotObject
+public partial class AnObject : RefCounted
 {
     [Signal]
     public delegate void NameChangedEventHandler(CurrentObjectChangedEventArgs args);
