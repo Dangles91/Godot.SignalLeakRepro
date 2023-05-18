@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=3 uid="uid://cnlcu5r7qrv5a"]
+
+[ext_resource type="Script" path="res://Control.cs" id="1_jyix1"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jyix1")
+
+[node name="ItemList" type="ItemList" parent="."]
+layout_mode = 0
+offset_right = 227.0
+offset_bottom = 242.0
+
+[node name="Label" type="Label" parent="ItemList"]
+layout_mode = 0
+offset_left = 236.0
+offset_top = 5.0
+offset_right = 366.0
+offset_bottom = 35.0
+
+[node name="LineEdit" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 250.0
+offset_top = 4.0
+offset_right = 424.0
+offset_bottom = 35.0
+placeholder_text = "Enter a new name"
