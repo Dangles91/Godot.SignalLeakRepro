@@ -35,6 +35,7 @@ public partial class Control : Godot.Control
     // Called when the node enters the scene tree for the first time.
     private ItemList GetItemList() => GetNode<ItemList>("ItemList");
     private LineEdit GetLineEdit() => GetNode<LineEdit>("LineEdit");
+	private Button GetButtion() => GetNode<Button>("Button");
 
     public override void _Ready()
     {
@@ -69,6 +70,12 @@ public partial class Control : Godot.Control
             CurrentObject = ListOfObjects[(int)v];
             CurrentObject.NameChanged += OnNameChanged;
         };
+
+		GetButtion().Pressed += () => {
+			GC.Collect();
+			GC.WaitForPendingFinalizers();
+			GD.Print("Collecting the garbage.");
+		};
     }
 
     public void OnNameChanged(CurrentObjectChangedEventArgs args)
